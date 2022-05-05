@@ -14,6 +14,9 @@ import com.proyecto.olimpiadas.entity.Disciplina;
 
 @Repository
 public interface DisciplinaRepository extends JpaRepository<Disciplina, Integer>{
+	
+	@Query(value = "SELECT * FROM disciplina WHERE id = :id AND status = 1", nativeQuery = true)
+	Disciplina getDisciplina(Integer id);
 
 	Disciplina findByDisciplinaAndStatus(@Param("disciplina") String disciplina, @Param("status") Integer status);
 	
