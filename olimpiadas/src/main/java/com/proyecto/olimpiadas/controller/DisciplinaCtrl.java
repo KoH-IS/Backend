@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.proyecto.exception.ApiException;
 import com.proyecto.olimpiadas.dto.ApiResponse;
+import com.proyecto.olimpiadas.dto.DtoDisciplinaList;
 import com.proyecto.olimpiadas.entity.Disciplina;
 import com.proyecto.olimpiadas.service.DisciplinaService;
 
@@ -30,7 +31,7 @@ public class DisciplinaCtrl {
 	DisciplinaService svc;
 	
 	@GetMapping
-	public ResponseEntity<List<Disciplina>> getDisciplinas(){
+	public ResponseEntity<List<DtoDisciplinaList>> getDisciplinas(){
 		return new ResponseEntity<>(svc.getDisciplinas(), HttpStatus.OK);
 	}
 	

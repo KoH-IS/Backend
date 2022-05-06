@@ -1,7 +1,5 @@
 package com.proyecto.olimpiadas.repository;
 
-import java.util.List;
-
 import javax.transaction.Transactional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -19,8 +17,6 @@ public interface DisciplinaRepository extends JpaRepository<Disciplina, Integer>
 	Disciplina getDisciplina(Integer id);
 
 	Disciplina findByDisciplinaAndStatus(@Param("disciplina") String disciplina, @Param("status") Integer status);
-	
-	List<Disciplina> findByStatus(Integer status);
 	
 	@Modifying
 	@Transactional

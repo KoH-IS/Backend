@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.proyecto.exception.ApiException;
 import com.proyecto.olimpiadas.dto.ApiResponse;
+import com.proyecto.olimpiadas.entity.Disciplina;
 import com.proyecto.olimpiadas.entity.Entrenador;
 import com.proyecto.olimpiadas.repository.DisciplinaRepository;
 import com.proyecto.olimpiadas.repository.EntrenadorRepository;
@@ -75,9 +76,9 @@ public class EntrenadorServiceImp implements EntrenadorService{
 	}
 
 	@Override
-	public ApiResponse updateEntrenadorDisciplina(Entrenador in, Integer id_entrenador) {
+	public ApiResponse updateEntrenadorDisciplina(Disciplina in, Integer id_entrenador) {
 		try {
-			if(repo.updateEntrenadorDisciplina(in.getId_entrenador(), id_entrenador) > 0)
+			if(repo.updateEntrenadorDisciplina(in.getId(), id_entrenador) > 0)
 				return new ApiResponse("se actualiza la disciplina del entrenador");
 			else
 				throw new ApiException(HttpStatus.BAD_REQUEST, "la disciplina del entrenador no puede ser actualizada");
